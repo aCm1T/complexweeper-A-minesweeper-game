@@ -2,7 +2,7 @@
 const std = @import("std");
 const g = @import("game.zig");
 const A = @import("assets.zig"); // 只为核对"每个显示值都有贴图"
-const ui = @import("main.zig"); // 只为拿版本号（抬头要写）
+const version = @import("version.zig"); // 规则自检不再依赖 Windows 界面
 
 var fails: u32 = 0;
 var checks: u32 = 0;
@@ -95,7 +95,7 @@ pub fn run(out: *std.ArrayList(u8)) u32 {
     checks = 0;
     var game: g.Game = .{};
 
-    note(out, "复扫雷 {s} · 规则自检\n==========================\n", .{ui.testAppVersion});
+    note(out, "复扫雷 {s} · 规则自检\n==========================\n", .{version.app});
 
 // ---- 1. 随机数确定性 ----
     {

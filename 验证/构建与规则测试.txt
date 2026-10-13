@@ -1,0 +1,44 @@
+素材来源：整图（图集.png + 图集.json，116 个槽位，208×207）
+闵可夫斯基模式 39 个显示值：自带贴图 27 张 + 复用圆复数模式 12 张
+闵可夫斯基模式的新增贴图已经全是真素材了 ✓（led_j 也确认一下：它是红色 j，不带紫红）
+槽位里的透明像素按底色补实了 6 个：hnum_49_i×2 hwrong_3×1 hwrong_4×2 hmine_4×1（GDI 不看 alpha，不补会画成黑点）
+图集: 208x207，116 张，像素 32666，bin 173164 字节
+写出 ./正式版/src/atlas.bin
+写出 ./正式版/src/assets.zig
+原版图标及 6 段 WAV 已提取。
+复扫雷 1.2.0 · 规则自检
+==========================
+1 随机数确定性：通过（校验 2 项）
+2 精确配比：通过
+3 纯实/纯虚不变量：通过
+4 连片展开：空白样本 22，显示 0 样本 28，不一致 0，翻雷 0
+4b 大盘连片：样本 144，大连片 136 次，一次最多翻开 1199 格，逐格不一致 0
+5 开局连片与分类计数：通过
+6 组合匹配判据：样本 98，放行 61，不一致 0
+7 插旗不限量：插了 63 面，循环 { 1, 2, 3, 4, 0, 1 }
+8 旗子保护格子（翻不开、连片也不碰）：通过
+9 胜负判定：通过
+10 展开门禁：通过
+11 闵可夫斯基显示值集合与贴图覆盖：通过（组合 495 种，闵可夫斯基 39 值）
+11b 闵可夫斯基显示值算法（a² − b²）：通过
+11c 闵可夫斯基判据（推荐 / 备选两档）：通过
+12 判定贴图表：通过（实雷共用、j 版独立、无空洞）
+
+断言 58 项，失败 0 项
+全部通过
+test_boundary_rejects_invalid_input_without_changing_game (__main__.PortTests.test_boundary_rejects_invalid_input_without_changing_game) ... ok
+test_exact_custom_counts_and_dense_first_click_win (__main__.PortTests.test_exact_custom_counts_and_dense_first_click_win) ... ok
+test_first_click_safe_both_modes_all_presets (__main__.PortTests.test_first_click_safe_both_modes_all_presets) ... ok
+test_flags_preserved_before_start_and_protect_cells (__main__.PortTests.test_flags_preserved_before_start_and_protect_cells) ... ok
+test_layout_large_signed_counters_and_screenshots (__main__.PortTests.test_layout_large_signed_counters_and_screenshots) ... ok
+test_mouse_cancel_flag_protection_reset_and_chord (__main__.PortTests.test_mouse_cancel_flag_protection_reset_and_chord) ... ok
+test_scores_modes_corruption_and_settings_roundtrip (__main__.PortTests.test_scores_modes_corruption_and_settings_roundtrip) ... ok
+test_seed_determinism (__main__.PortTests.test_seed_determinism) ... ok
+test_timer_wrap_and_freeze_after_loss (__main__.PortTests.test_timer_wrap_and_freeze_after_loss) ... ok
+test_winning_requires_every_safe_cell_not_flags (__main__.PortTests.test_winning_requires_every_safe_cell_not_flags) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.107s
+
+OK
+构建与自检通过。运行 ./complexweeper 即可开始。

@@ -1,3 +1,9 @@
+Linux 社区移植版
+
+Linux 安装、运行和构建说明见 [README-Linux.md](README-Linux.md)。基于 Yueqing-Chen 的 Complexweeper 1.2.0，以下保留上游原版说明。
+
+---
+
 复扫雷 Complexweeper
 
 扫雷，但雷是复数；格子上的数字是它周围所有雷之和的模长。

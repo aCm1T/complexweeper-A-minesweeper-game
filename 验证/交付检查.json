@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-13",
+  "platform": "x86_64",
+  "original_zip_sha256": "2528cb664b9173a64ba8c8234caabc64e7110a5e39d86a340d689d8801f09ecf",
+  "original_rules_unchanged": true,
+  "rules_sha256": "687b8b97ce43530e47c63f277d4f51de54ce889a3dfff98f78aa096971b5819c",
+  "original_rule_assertions": {
+    "passed": 58,
+    "failed": 0
+  },
+  "linux_regression_test_groups": {
+    "passed": 10,
+    "failed": 0
+  },
+  "native_window_checks": {
+    "x11": 31,
+    "wayland": 31,
+    "failed": 0
+  },
+  "windows_entry_cross_compilation": "passed; not run on Windows",
+  "audio_check": "All 6 original WAVs fully decoded with GStreamer to a test sink; physical speakers not checked",
+  "zig_version": "0.14.1",
+  "zig_download_sha256": "24aeeec8af16c381934a6cd7d95c807a8cb2cf7df9fa40d359aa884195c4716c",
+  "linux_library_sha256": "11fd5f65cdc05a458b33c51b39b9d04670a35ed662d8ece21cf7c24c48a1e17a",
+  "upstream_repository": "https://github.com/Yueqing-Chen/complexweeper-A-minesweeper-game",
+  "source_archive_commit": "e225219ce5d331f717eaead80200ecb64d01746e",
+  "linux_release_version": "1.2.0-linux.1",
+  "target": "x86_64-linux-gnu",
+  "cpu": "baseline",
+  "release_review": {
+    "status": "passed for a community prerelease",
+    "method": "source-code and release-package audit in this session",
+    "fixed_findings": [
+      {
+        "severity": "P1",
+        "finding": "Host-native build contained AVX-512 instructions that could fail on other x86_64 CPUs",
+        "resolution": "Explicit x86_64-linux-gnu target and baseline CPU; verified no AVX YMM/ZMM instructions in both ELF artifacts"
+      },
+      {
+        "severity": "P2",
+        "finding": "Inherited Windows release workflow matches Linux tags and could publish Windows assets and mark the Linux prerelease latest",
+        "resolution": "Exclude -linux. tags at the Windows release job condition"
+      }
+    ],
+    "validated": [
+      "Original game rules unchanged",
+      "58 original rule assertions",
+      "10 Linux regression groups",
+      "31 X11 checks",
+      "31 Wayland checks",
+      "All 6 WAVs reach end-of-stream",
+      "Shell syntax",
+      "No personal workspace paths in published text or ELF artifacts",
+      "Complete source, build script, GPL license and original asset notices included",
+      "Windows auto-release job excluded for Linux community tags"
+    ],
+    "open_blocking_findings": [],
+    "tested_distribution": "Fedora 44",
+    "github_actions_status": "Local review excludes remote CI; subsequent CI evidence is recorded on the GitHub Release page",
+    "publication_status": "Reviewed local artifact; publication and current status are tracked by GitHub Release",
+    "recommended_tag": "v1.2.0-linux.1",
+    "recommended_prerelease": true
+  }
+}

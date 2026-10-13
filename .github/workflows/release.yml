@@ -11,6 +11,8 @@ permissions:
 
 jobs:
   release:
+    # Linux community tags have a separate publication path; do not publish a Windows asset or mark them latest.
+    if: ${{ !contains(github.ref_name, '-linux.') }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5

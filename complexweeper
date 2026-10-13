@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+project_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+python_bin="${COMPLEXWEEPER_PYTHON:-/usr/bin/python3}"
+if [[ ! -f "$project_dir/linux/libcomplexweeper.so" ]]; then
+    echo '尚未构建 Linux 引擎，请先运行 ./build-linux.sh。' >&2
+    exit 1
+fi
+if ! "$python_bin" -c 'import gi, cairo' >/dev/null 2>&1; then
+    echo '缺少 Python GTK/Cairo，请按 README-Linux.md 安装运行依赖。' >&2
+    exit 1
+fi
+exec "$python_bin" "$project_dir/linux/app.py" "$@"

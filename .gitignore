@@ -1,0 +1,9 @@
+linux/.build-cache/
+linux/__pycache__/
+linux/*.o
+linux/*.so
+linux/rules-selftest
+linux/sounds/
+linux/icon.png
+正式版/src/assets.zig
+正式版/src/atlas.bin
